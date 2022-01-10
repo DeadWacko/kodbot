@@ -21,6 +21,8 @@ jedi_menu_keyboard_markup = InlineKeyboardMarkup().add(add_group_button).add(sho
 #Клавиатура статистики (ветка преподавателя)
 student_rate_button = InlineKeyboardButton('Рейтинг от учеников', callback_data='event_student_rate_button')
 show_groups_button = InlineKeyboardButton('Посмотреть группы', callback_data='event_student_rate_button')
+monthly_salary = InlineKeyboardButton('Зарплата за месяц', callback_data='event_monthly_salary')
+
 
 
 
