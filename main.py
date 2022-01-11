@@ -41,7 +41,7 @@ def send_mail(input_mail,send_pin):
     server.quit()
 
 
-#функция печати нынешних групп
+#функция печати нынешних групп    ###ПЕРЕДЕЛАТЬ
 def print_group_json():
     with open('data.JSON', 'r',encoding="utf-8") as f:
         json_data = json.load(f)
@@ -75,8 +75,37 @@ def add_new_group_json(input_new_group,lesson_day,lesson_time):
             f.close()
     else:
         print("Группа есть")
+#функция добавления ученика в группу
+def add_new_podavan_json(input_group,nik_telegram,podavan_name):
+    str = print_group_json()
+    print(print_group_json())
+    print(input_group)
+    if input_group  in str:
+        with open('data.JSON', 'r', encoding="utf-8") as f:
+            json_data = json.load(f)
 
+            x = {
+                "podavan_name": f"{podavan_name}",
+                "посещаемость": "0",
+                "оценка уроков": {
+                    "1": "0",
+                    "2": "0",
+                    "3": "0",
+                    "4": "0",
+                    "5": "0",
+                    "6": "0",
+                    "7": "0"
+                },
+                "рейтинг в боте": "0"
+            }
 
+            json_data["jedi"]["Костюкевич Михаил Константинович"]["podavans_group"][input_group]["podavans"][nik_telegram] = x
+
+        with open('data.JSON', 'w', encoding="utf-8") as f:
+            f.write(json.dumps(json_data, ensure_ascii=False))
+            f.close()
+    else:
+        print("Такой группы нет")
 
 
 
