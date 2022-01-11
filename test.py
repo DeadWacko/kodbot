@@ -68,7 +68,23 @@ def add_new_podavan_json(input_group,nik_telegram,podavan_name):
 
 
 
-#TODO функция добавления нового пользователя(в зависимости от его статуса)
+
+
+
+
+
+
+
+
+
+
+#TODO функция добавления нового преподавателя
+#     название ф-и: json_add_new_jedi()
+#     Входные параметры: jedi_kodland_email, jedi_telegram_username, jedi_full_name
+#     Выходные параметры: True/False
+#                                   True(если пользователь добавлен или он уже есть)
+#                                   False(Если произошла ошибка)
+#     Вспомогательные функции:  Функция проверки наличия преподавателя в JSON файле
 
 
 
