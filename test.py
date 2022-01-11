@@ -68,9 +68,40 @@ def add_new_podavan_json(input_group,nik_telegram,podavan_name):
 
 
 
+def json_add_new_jedi(jedi_kodland_email=None, jedi_telegram_username=None, jedi_full_name=None):
+    with open('data.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
+
+        add_pattern_jedi = {
+            "full_name": f"{jedi_full_name}",
+            "jedi_kodland_email": f"{jedi_kodland_email}",
+            "podavan_group":{}
+        }
+
+        json_data["jedi"][jedi_telegram_username] = add_pattern_jedi
+
+
+    with open('data.JSON', 'w', encoding="utf-8") as f:
+        f.write(json.dumps(json_data, ensure_ascii=False))
+        f.close()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+json_add_new_jedi(jedi_kodland_email="@gmail.com", jedi_telegram_username="JEDI_TG", jedi_full_name="IVAN")
 
 
 
@@ -102,4 +133,4 @@ def add_new_podavan_json(input_group,nik_telegram,podavan_name):
 
 
 
-
+#TODO

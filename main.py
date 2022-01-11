@@ -192,8 +192,8 @@ async def input_mail(msg: types.Message):
                 day_group = new_messedge.split("\n")[1]
                 time_group = new_messedge.split("\n")[2]
 
-                add_new_group_json(input_new_group=name_group, lesson_day=day_group,
-                                   lesson_time=time_group)
+                #ф-я добавления новой группы
+
 
 
 
