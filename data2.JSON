@@ -1,0 +1,20 @@
+{
+  "tg": {
+    "deadwacko": {
+      "flag_state": "",
+      "status": "jedi"
+    },
+    "Ivan": {
+      "flag_state": "",
+      "status": "jedi"
+    },
+    "Julia": {
+      "flag_state": "",
+      "status": "jedi"
+    },
+    "Katya": {
+      "flag_state": "abobus",
+      "status": "padawan"
+    }
+  }
+}
