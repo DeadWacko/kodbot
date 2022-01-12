@@ -71,7 +71,11 @@ rate_skill_keyboard_markup = InlineKeyboardMarkup().add(rate_skill_one_button).a
     .add(rate_skill_three_button).add(rate_skill_four_button).add(rate_skill_five_button)
 
 #problems button(padawan)
-problems_button = InlineKeyboardButton('Есть проблемы 😥', callback_data='problems_button')
-no_problems_button = InlineKeyboardButton('Нет проблем 👌', callback_data='no_problems_button')
+problems_button = InlineKeyboardButton('Есть проблемы 😥', callback_data='event_problems_button')
+no_problems_button = InlineKeyboardButton('Нет проблем 👌', callback_data='event_no_problems_button')
 problems_keyboard_markup = InlineKeyboardMarkup().add(problems_button).add(no_problems_button)
 
+#yes or no button
+yes_button = InlineKeyboardButton('Да', callback_data='event_yes_button')
+no_button = InlineKeyboardButton('Нет', callback_data='event_no_button')
+yes_no_keyboard_markup = InlineKeyboardMarkup().add(yes_button).add(no_button)
