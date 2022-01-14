@@ -1,14 +1,21 @@
 {
   "jedi": {
-    "Костюкевич Михаил Константинович": {
-      "podavans_group": {
-        "Mini2776_С-18": {
-          "last_lesson": "16",
-          "lesson_day": "6",
-          "lesson_time": "18:00",
-          "podavans": {
-            "nik_telegram": {
-              "name": "имя",
+    "ne_katia": {
+      "full_name": "None",
+      "jedi_kodland_email": "None",
+      "padawans_groups": {
+        "Test_group": {
+          "group_data": {
+            "auth_padawan_pin": "574643",
+            "number_last_lesson": "M4Y3",
+            "lesson_day": "5",
+            "lesson_time": "12:00",
+            "average_rating_all_padawans": "0",
+            "course_name": "python base"
+          },
+          "padawans": {
+            "Mihail_Kostuykevich": {
+              "name": "Костюкевич Михаил",
               "посещаемость": "0",
               "оценка уроков": {
                 "1": "0",
@@ -16,50 +23,8 @@
                 "3": "0",
                 "4": "0",
                 "5": "0",
-                "6": "6",
-                "7": "7"
-              },
-              "рейтинг в боте": "0"
-            }
-          }
-        },
-        "Newmini2934_ПТ-18": {
-          "last_lesson": "16",
-          "lesson_day": "6",
-          "lesson_time": "18:00",
-          "podavans": {
-            "nik_telegram": {
-              "name": "имя",
-              "посещаемость": "0",
-              "оценка уроков": {
-                "1": "0",
-                "2": "0",
-                "3": "0",
-                "4": "0",
-                "5": "0",
-                "6": "6",
-                "7": "7"
-              },
-              "рейтинг в боте": "0"
-            }
-          }
-        },
-        "Mini2137_B-12": {
-          "last_lesson": "16",
-          "lesson_day": "6",
-          "lesson_time": "18:00",
-          "podavans": {
-            "nik_telegram": {
-              "name": "имя",
-              "посещаемость": "0",
-              "оценка уроков": {
-                "1": "0",
-                "2": "0",
-                "3": "0",
-                "4": "0",
-                "5": "0",
-                "6": "6",
-                "7": "7"
+                "6": "0",
+                "7": "0"
               },
               "рейтинг в боте": "0"
             }

@@ -1,20 +1,14 @@
 {
   "tg": {
-    "deadwacko": {
-      "flag_state": "",
-      "status": "jedi"
+    "ne_katia": {
+      "flag_state": "  ",
+      "status": "jedi",
+      "mail_pin": 706578
     },
-    "Ivan": {
-      "flag_state": "",
-      "status": "jedi"
-    },
-    "Julia": {
-      "flag_state": "",
-      "status": "jedi"
-    },
-    "Katya": {
-      "flag_state": "abobus",
-      "status": "padawan"
+    "Mihail_Kostuykevich": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
     }
   }
 }

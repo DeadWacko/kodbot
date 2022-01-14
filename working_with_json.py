@@ -3,30 +3,42 @@ import json
 
 # функция добавления нового преподавателя
 def json_add_new_jedi(jedi_kodland_email=None, jedi_telegram_username=None, jedi_full_name=None):
-    if not json_check(required_verification="jedi", jedi_telegram_username=jedi_telegram_username):
-        with open('data.JSON', 'r', encoding="utf-8") as f:
-            json_data = json.load(f)
+    with open('data.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
 
-            add_pattern_jedi = {
-                "jedi_flag_state": "",
-                "full_name": f"{jedi_full_name}",
-                "jedi_kodland_email": f"{jedi_kodland_email}",
-                "podawans_groups": {}
-            }
+        add_pattern_jedi = {
+            "full_name": f"{jedi_full_name}",
+            "jedi_kodland_email": f"{jedi_kodland_email}",
+            "padawans_groups": {}
+        }
 
-            json_data["jedi"][jedi_telegram_username] = add_pattern_jedi
+        json_data["jedi"][jedi_telegram_username] = add_pattern_jedi
 
-        with open('data.JSON', 'w', encoding="utf-8") as f:
-            f.write(json.dumps(json_data, ensure_ascii=False))
-            f.close()
-        return True
-    else:
-        return True
+    with open('data.JSON', 'w', encoding="utf-8") as f:
+        f.write(json.dumps(json_data, ensure_ascii=False))
+        f.close()
+
+    with open('data2.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
+
+        add_pattern = {
+            "flag_state": "",
+            "status": "jedi",
+            "mail_pin": ""
+        }
+        json_data["tg"][jedi_telegram_username] = add_pattern
+
+    with open('data2.JSON', 'w', encoding="utf-8") as f:
+        f.write(json.dumps(json_data, ensure_ascii=False))
+        f.close()
+    return True
 
 
 # функция добавления новой группы
-def json_add_new_group(group_name, lesson_day, lesson_time, number_last_lesson, course_name, jedi_telegram_username,
-                       auth_padawan_pin):
+def json_add_new_group(group_name, auth_padawan_pin, lesson_day, lesson_time, number_last_lesson=None, course_name=None, jedi_telegram_username=None,):
+    print("функция добавления новой группы")
+    print(json_check(required_verification="group", jedi_telegram_username=jedi_telegram_username,
+                      group_name=group_name))
     if not json_check(required_verification="group", jedi_telegram_username=jedi_telegram_username,
                       group_name=group_name):
         with open('data.JSON', 'r', encoding="utf-8") as f:
@@ -44,6 +56,7 @@ def json_add_new_group(group_name, lesson_day, lesson_time, number_last_lesson, 
                 "padawans": {}
             }
             json_data["jedi"][jedi_telegram_username]["padawans_groups"][group_name] = add_pattern_group
+            print("Группа добавлена")
         with open('data.JSON', 'w', encoding="utf-8") as f:
             f.write(json.dumps(json_data, ensure_ascii=False))
             f.close()
@@ -52,46 +65,38 @@ def json_add_new_group(group_name, lesson_day, lesson_time, number_last_lesson, 
         return True
 
 
+
 # функция добавления нового ученика по пину
 def json_add_new_padawan(padawan_telegram_username, auth_padawan_pin, padawan_full_name):
     input_group_name = json_group_find_pin(auth_padawan_pin)
     if input_group_name[0]:
-        print("Группа по пину найдена")
-        print(input_group_name[2])
-        if not json_check(required_verification="padawan", padawan_telegram_username=padawan_telegram_username,
-                          jedi_telegram_username=input_group_name[2], group_name=input_group_name[1]):
-            print("Ученик потерялса")
-
-            with open('data.JSON', 'r', encoding="utf-8") as f:
-                json_data = json.load(f)
-
-                add_pattern_padawan = {
-                    "padawan_flag_state": "",
-                    "name": f"{padawan_full_name}",
-                    "посещаемость": "0",
-                    "оценка уроков": {
-                        "1": "0",
-                        "2": "0",
-                        "3": "0",
-                        "4": "0",
-                        "5": "0",
-                        "6": "0",
-                        "7": "0"
-                    },
-                    "рейтинг в боте": "0"
-                }
-                print(1111111111111111111111111111111111111111111111111111)
-                json_data["jedi"][input_group_name[2]]["padawans_groups"][input_group_name[1]]["padawans"][
-                    padawan_telegram_username] = add_pattern_padawan
-
-            with open('data.JSON', 'w', encoding="utf-8") as f:
-                f.write(json.dumps(json_data, ensure_ascii=False))
-                f.close()
-            return True
-        else:
-            return True
+        with open('data.JSON', 'r', encoding="utf-8") as f:
+            json_data = json.load(f)
+            add_pattern_padawan = {
+                "name": f"{padawan_full_name}",
+                "посещаемость": "0",
+                "оценка уроков": {
+                    "1": "0",
+                    "2": "0",
+                    "3": "0",
+                    "4": "0",
+                    "5": "0",
+                    "6": "0",
+                    "7": "0"
+                },
+                "рейтинг в боте": "0"
+            }
+            json_data["jedi"][input_group_name[2]]["padawans_groups"][input_group_name[1]]["padawans"][
+                padawan_telegram_username] = add_pattern_padawan
+        with open('data.JSON', 'w', encoding="utf-8") as f:
+            f.write(json.dumps(json_data, ensure_ascii=False))
+            f.close()
+        return True        #ученика не было, но мы его добавили
     else:
-        return False
+        return False       #ученик уже есть, грузим для него стартовую клавиатуру
+
+
+
 
 
 # функция проверки  Переписать ученика
@@ -99,19 +104,24 @@ def json_check(required_verification, jedi_kodland_email=None, jedi_telegram_use
                group_name=None, padawan_telegram_username=None):
     # проверка на группу
     if required_verification == "group":
+        try:
 
-        with open('data.JSON', 'r', encoding="utf-8") as f:
-            json_data = json.load(f)
-            all_group = ""
-            for i in json_data["jedi"][jedi_telegram_username]["padawans_groups"].keys():
-                all_group += i
+            with open('data.JSON', 'r', encoding="utf-8") as f:
+                json_data = json.load(f)
+                all_group = ""
+                for i in json_data["jedi"][jedi_telegram_username]["padawans_groups"].keys():
+                    all_group += i
+                    print(i)
 
-            if group_name in all_group:
-                return True
-            else:
-                return False
+                if group_name in all_group:
+                    return True
+                else:
+                    return False
+        except KeyError:
+            print("пустой список групп")
+            return False
 
-    # проверка на преподавателя (по нику телеграма)
+    # проверка  преподавателя (по нику телеграма)
     elif required_verification == "jedi":
 
         with open('data.JSON', 'r', encoding="utf-8") as f:
@@ -148,63 +158,67 @@ def json_group_find_pin(auth_padawan_pin):
                 if json_data["jedi"][jedi_telegram_username]["padawans_groups"][group_name]["group_data"][
                     "auth_padawan_pin"] == str(auth_padawan_pin):
                     return True, group_name, jedi_telegram_username
-                    break
+
         return False, False
 
 
-# Изменение состояния преподавателя
-def json_change_jedi_flag_state(new_flag_state, jedi_telegram_username):
-    with open('data.JSON', 'r', encoding="utf-8") as f:
+# Изменение состояния flag_state в data2
+def json_change_flag_state(new_flag_state, telegram_username):
+    with open('data2.JSON', 'r', encoding="utf-8") as f:
         json_data = json.load(f)
-        json_data["jedi"][jedi_telegram_username]["jedi_flag_state"] = new_flag_state
+        json_data["tg"][telegram_username]["flag_state"] = new_flag_state
 
-    with open('data.JSON', 'w', encoding="utf-8") as f:
+    with open('data2.JSON', 'w', encoding="utf-8") as f:
         f.write(json.dumps(json_data, ensure_ascii=False))
         f.close()
     return True
 
 
-# Изменение состояния ученика
-def json_change_padawan_flag_state(new_flag_state=None, input_padawan_telegram_username=None):
-    with open('data.JSON', 'r', encoding="utf-8") as f:
+# Чтение состояния flag_state в data2
+def json_read_flag_state(telegram_username):
+    with open('data2.JSON', 'r', encoding="utf-8") as f:
         json_data = json.load(f)
-        for jedi_telegram_username in json_data["jedi"].keys():
+        f.close()
+        return json_data["tg"][telegram_username]["flag_state"]
 
-            for group_name in json_data["jedi"][jedi_telegram_username]["padawans_groups"].keys():
 
-                for padawan in json_data["jedi"][jedi_telegram_username]["padawans_groups"][group_name][
-                    "padawans"].keys():
+# Изменение состояния mail_pin в data2
+def json_change_mail_pin(new_mail_pin, telegram_username):
+    with open('data2.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
+        json_data["tg"][telegram_username]["mail_pin"] = new_mail_pin
 
-                    if padawan == input_padawan_telegram_username:
-                        json_data["jedi"][jedi_telegram_username]["padawans_groups"][group_name]["padawans"][
-                            input_padawan_telegram_username]["padawan_flag_state"] = new_flag_state
+    with open('data2.JSON', 'w', encoding="utf-8") as f:
+        f.write(json.dumps(json_data, ensure_ascii=False))
+        f.close()
+    return True
 
-                        print(jedi_telegram_username)
-                        break
 
-    with open('data.JSON', 'w', encoding="utf-8") as f:
+# Чтение состояния mail_pin в data2
+def json_read_mail_pin(telegram_username):
+    with open('data2.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
+        f.close()
+        return json_data["tg"][telegram_username]["mail_pin"]
+
+
+#функция добавления ученика в data2.json перед созданием его профиля в data.json
+def json_add_padawan_state_data2(padawan_telegram_username,flag_state):
+    with open('data2.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
+
+        add_pattern = {
+            "flag_state": f"{flag_state}",
+            "status": "padawan",
+            "mail_pin": ""
+        }
+        json_data["tg"][padawan_telegram_username] = add_pattern
+
+    with open('data2.JSON', 'w', encoding="utf-8") as f:
         f.write(json.dumps(json_data, ensure_ascii=False))
         f.close()
 
 
-# Чтение состояния преподавателя
-def json_read_jedi_flag_state(jedi_telegram_username):
-    with open('data.JSON', 'r', encoding="utf-8") as f:
-        json_data = json.load(f)
-        return json_data["jedi"][jedi_telegram_username]["jedi_flag_state"]
 
 
-# Чтение состояния ученика
-def json_read_padawan_flag_state(padawan_telegram_username):
-    with open('data.JSON', 'r', encoding="utf-8") as f:
-        json_data = json.load(f)
-        for jedi_telegram_username in json_data["jedi"].keys():
 
-            for group_name in json_data["jedi"][jedi_telegram_username]["padawans_groups"].keys():
-
-                for padawan in json_data["jedi"][jedi_telegram_username]["padawans_groups"][group_name][
-                    "padawans"].keys():
-
-                    if padawan == padawan_telegram_username:
-                        return json_data["jedi"][jedi_telegram_username]["padawans_groups"][group_name]["padawans"][
-                            padawan_telegram_username]["padawan_flag_state"]
