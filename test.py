@@ -196,7 +196,47 @@ def json_change_flag_state(new_flag_state, telegram_username):
 
 
 
-#функция для напоминаний
 
 
-#функция рассылки сообщений
+
+
+
+
+
+#################################
+final_day = 0
+final_month= 0
+final_year = 0
+#################################
+
+
+#посчитать через сколько дней закончится курс ( всего дней + разница между сегодняшним числом и следующим уроком)
+
+
+
+import datetime
+range_course = 16          # из таблицы хватаем длину курса
+mounth_last_lesson = 2     # берем месяц занятий
+num_last_lesson = 1        # берем номер урока
+lesson_day = 5
+############################################################
+now_week_num = datetime.datetime.today().isoweekday()           # из datetime хватаем номер дня сегодня
+# считаем сколько недель осталось учиться
+num_week = range_course - mounth_last_lesson * num_last_lesson
+#считаем сколько это дней + разница до урока
+day_num = num_week * 7  + (lesson_day - now_week_num)
+date = datetime.datetime.today().strftime("%m/%d/%y")
+date_1 = datetime.datetime.strptime(date, "%m/%d/%y")
+end_date = date_1 + datetime.timedelta(days=day_num)
+print(end_date.strftime("%m/%d/%y"))
+
+16, 2, 1, 5
+
+
+
+
+
+
+
+
+

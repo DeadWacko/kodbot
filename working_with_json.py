@@ -91,9 +91,9 @@ def json_add_new_padawan(padawan_telegram_username, auth_padawan_pin, padawan_fu
         with open('data.JSON', 'w', encoding="utf-8") as f:
             f.write(json.dumps(json_data, ensure_ascii=False))
             f.close()
-        return True        #ученика не было, но мы его добавили
+        return True, input_group_name[1]        #ученика не было, но мы его добавили
     else:
-        return False       #ученик уже есть, грузим для него стартовую клавиатуру
+        return False, input_group_name[1]       #ученик уже есть, грузим для него стартовую клавиатуру
 
 
 
@@ -220,5 +220,38 @@ def json_add_padawan_state_data2(padawan_telegram_username,flag_state):
 
 
 
+
+
+
+
+
+
+
+#Функция которая возвращает строчку окончания напоминаний
+def date_calculation(range_course, mounth_last_lesson, num_last_lesson, lesson_day):
+    import datetime
+    now_week_num = datetime.datetime.today().isoweekday()  # из datetime хватаем номер дня сегодня
+    # считаем сколько недель осталось учиться
+    num_week = int(range_course) - int(mounth_last_lesson) * int(num_last_lesson)
+    # считаем сколько это дней + разница до урока
+    day_num = num_week * 7 + (int(lesson_day) - int(now_week_num))
+    date = datetime.datetime.today().strftime("%m/%d/%y")
+    date_1 = datetime.datetime.strptime(date, "%m/%d/%y")
+    end_date = date_1 + datetime.timedelta(days=day_num)
+    return end_date.strftime("%Y-%m-%d")
+
+
+
+#функция изменения оценки
+def rating_change(number_rating, padawan_id, rating_value):
+    with open('data.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
+        for jedi_telegram_id in json_data["jedi"].keys():
+            for group_name in json_data["jedi"][jedi_telegram_id]["padawans_groups"].keys():
+                for id in json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"]:
+                    if id == padawan_id:
+                        json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"][id]["rating_lesson"][number_rating] = rating_value
+
+                    break
 
 
