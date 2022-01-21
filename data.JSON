@@ -1,1 +1,251 @@
-{"jedi": {"397584737": {"full_name": "None", "jedi_kodland_email": "None", "padawans_groups": {"Test-group": {"group_data": {"auth_padawan_pin": "393760", "number_last_lesson": "М1У0", "lesson_day": "6", "lesson_time": "6:14", "average_rating_all_padawans": "0", "course_name": "Python base"}, "padawans": {"343621687": {"name": "Ларионова Екатерина", "посещаемость": "0", "оценка уроков": {"1": "0", "2": "0", "3": "0", "4": "0", "5": "0", "6": "0", "7": "0"}, "рейтинг в боте": "0"}}}}}}}
+{
+  "jedi": {
+    "397584737": {
+      "full_name": " ",
+      "jedi_kodland_email": "None",
+      "padawans_groups": {
+        "TEST_GROUP": {
+          "group_data": {
+            "auth_padawan_pin": "957628",
+            "number_last_lesson": "М1У0",
+            "lesson_day": "5",
+            "lesson_time": "17:00",
+            "average_rating_all_padawans": "0",
+            "course_name": "test_course"
+          },
+          "padawans": {
+            "343621687": {
+              "name": "Ларионова Екатерина",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "741897240": {
+              "name": "Анастасия Астапова",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "461387868": {
+              "name": "Борисова Слава",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "1026408343": {
+              "name": "Юдина Юлия",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "421236964": {
+              "name": "Ильичев Артём",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "1040453743": {
+              "name": "Сулаев Владимир",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "556209660": {
+              "name": "Попов Сергей",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "549491369": {
+              "name": "Соня",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            }
+          }
+        },
+        "Mini_2776_С-18": {
+          "group_data": {
+            "auth_padawan_pin": "105409",
+            "number_last_lesson": "М5У1",
+            "lesson_day": "6",
+            "lesson_time": "18:00",
+            "average_rating_all_padawans": "0",
+            "course_name": "Python pro"
+          },
+          "padawans": {
+            "1732868375": {
+              "name": "Трамов Альберт",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "1428562393": {
+              "name": "Берекчиян Евгений",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            }
+          }
+        },
+        "Newmini_4018_В-18": {
+          "group_data": {
+            "auth_padawan_pin": "105505",
+            "number_last_lesson": "М1У1",
+            "lesson_day": "7",
+            "lesson_time": "18:00",
+            "average_rating_all_padawans": "0",
+            "course_name": "python GUI"
+          },
+          "padawans": {
+            "1103506886": {
+              "name": "Куликова Елизавета",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            },
+            "664475103": {
+              "name": "Поляков Иван",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            }
+          }
+        },
+        "Онлайн_Ind3986": {
+          "group_data": {
+            "auth_padawan_pin": "967600",
+            "number_last_lesson": "М1У1",
+            "lesson_day": "7",
+            "lesson_time": "16:00",
+            "average_rating_all_padawans": "0",
+            "course_name": "python GUI"
+          },
+          "padawans": {}
+        },
+        "Newmini2934_ПТ-18": {
+          "group_data": {
+            "auth_padawan_pin": "504144",
+            "number_last_lesson": "М3У3",
+            "lesson_day": "5",
+            "lesson_time": "18:00",
+            "average_rating_all_padawans": "0",
+            "course_name": "python chatbot"
+          },
+          "padawans": {
+            "1682905146": {
+              "name": "Мишин Павел",
+              "attendance": "0",
+              "rating_lesson": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "0",
+                "6": "0",
+                "7": "0"
+              },
+              "рейтинг в боте": "0"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,79 @@
-{"tg": {"397584737": {"flag_state": "  ", "status": "padawan", "mail_pin": ""}, "343621687": {"flag_state": "  ", "status": "padawan", "mail_pin": ""}}}
+{
+  "tg": {
+    "397584737": {
+      "flag_state": "  ",
+      "status": "jedi",
+      "mail_pin": 666475
+    },
+    "1732868375": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "1428562393": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "1103506886": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "343621687": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "741897240": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "461387868": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "1682905146": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "1026408343": {
+      "flag_state": "flag_add_padawan",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "421236964": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "1040453743": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "556209660": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "891587657": {
+      "flag_state": "flag_add_padawan",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "664475103": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    },
+    "549491369": {
+      "flag_state": "  ",
+      "status": "padawan",
+      "mail_pin": ""
+    }
+  }
+}

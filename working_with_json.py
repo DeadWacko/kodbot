@@ -74,8 +74,8 @@ def json_add_new_padawan(padawan_telegram_username, auth_padawan_pin, padawan_fu
             json_data = json.load(f)
             add_pattern_padawan = {
                 "name": f"{padawan_full_name}",
-                "посещаемость": "0",
-                "оценка уроков": {
+                "attendance": "0",
+                "rating_lesson": {
                     "1": "0",
                     "2": "0",
                     "3": "0",
@@ -166,7 +166,7 @@ def json_group_find_pin(auth_padawan_pin):
 def json_change_flag_state(new_flag_state, telegram_username):
     with open('data2.JSON', 'r', encoding="utf-8") as f:
         json_data = json.load(f)
-        json_data["tg"][telegram_username]["flag_state"] = new_flag_state
+        json_data["tg"][str(telegram_username)]["flag_state"] = new_flag_state
 
     with open('data2.JSON', 'w', encoding="utf-8") as f:
         f.write(json.dumps(json_data, ensure_ascii=False))
@@ -179,7 +179,7 @@ def json_read_flag_state(telegram_username):
     with open('data2.JSON', 'r', encoding="utf-8") as f:
         json_data = json.load(f)
         f.close()
-        return json_data["tg"][telegram_username]["flag_state"]
+        return json_data["tg"][str(telegram_username)]["flag_state"]
 
 
 # Изменение состояния mail_pin в data2
@@ -249,9 +249,37 @@ def rating_change(number_rating, padawan_id, rating_value):
         for jedi_telegram_id in json_data["jedi"].keys():
             for group_name in json_data["jedi"][jedi_telegram_id]["padawans_groups"].keys():
                 for id in json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"]:
-                    if id == padawan_id:
-                        json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"][id]["rating_lesson"][number_rating] = rating_value
+                    if id == str(padawan_id):
+                        rating_naw = json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"][id]["rating_lesson"][number_rating]
+                        rating_naw = int(rating_naw) + int(rating_value)
+                        json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"][id][
+                            "rating_lesson"][number_rating] = str(rating_naw)
+                        print(rating_naw)
+                        break
 
-                    break
+    with open('data.JSON', 'w', encoding="utf-8") as f:
+        f.write(json.dumps(json_data, ensure_ascii=False))
+        f.close()
+
+
+
+#функция изменения посещаемости
+def attendance_change(padawan_id, attendance_value):
+    with open('data.JSON', 'r', encoding="utf-8") as f:
+        json_data = json.load(f)
+        for jedi_telegram_id in json_data["jedi"].keys():
+            for group_name in json_data["jedi"][jedi_telegram_id]["padawans_groups"].keys():
+                for id in json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"]:
+                    if id == str(padawan_id):
+                        rating_naw = json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"][id]["attendance"]
+                        rating_naw = int(rating_naw) + int(attendance_value)
+                        json_data["jedi"][jedi_telegram_id]["padawans_groups"][group_name]["padawans"][id]["attendance"] = str(rating_naw)
+                        print(rating_naw)
+                        break
+
+    with open('data.JSON', 'w', encoding="utf-8") as f:
+        f.write(json.dumps(json_data, ensure_ascii=False))
+        f.close()
+
 
 
